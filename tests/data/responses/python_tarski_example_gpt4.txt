@@ -1,0 +1,46 @@
+Here's an example of using Tarski to define a simple Blocks World domain and problem in PDDL:
+
+```python
+import tarski
+from tarski import fstrips as fs
+from tarski.syntax import *
+
+# Create a language with the required sorts and functions
+lang = tarski.language("blocksworld")
+
+# Define sorts
+place = lang.sort("place")
+block = lang.sort("block", [place])
+
+# Define functions
+on = lang.function("on", block, block)
+clear = lang.predicate("clear", block)
+table = lang.constant("table", block)
+
+# Define the Blocks World domain
+bw = fs.Action("move", [block("x"), block("y"), block("z")],
+               precondition=(clear("x") & on("x", "y") & clear("z")),
+               effects=[fs.DelEffect(on("x", "y")),
+                        fs.AddEffect(on("x", "z")),
+                        fs.DelEffect(clear("z")),
+                        fs.AddEffect(clear("y"))])
+
+domain = fs.Domain("blocksworld", [bw])
+
+# Define the Blocks World problem
+b1, b2, b3 = [lang.constant("b{}".format(k), block) for k in (1, 2, 3)]
+
+init = [on(b1, table), on(b2, table), on(b3, table), clear(b1), clear(b2), clear(b3)]
+goal = on(b1, b2) & on(b2, b3) & on(b3, table)
+
+problem = fs.Problem("bw-simple", domain, [b1, b2, b3], init, goal)
+
+# Generate PDDL domain and problem files
+with open("blocksworld_domain.pddl", "w") as f:
+    f.write(tarski.io.pddl_writer.write_domain(domain))
+
+with open("blocksworld_problem.pddl", "w") as f:
+    f.write(tarski.io.pddl_writer.write_problem(problem))
+```
+
+This script defines a simple Blocks World domain with a single "move" action and a problem with three blocks initially on the table. The goal is to stack the blocks in the order b1, b2, b3. The script generates two PDDL files: "blocksworld_domain.pddl" for the domain and "blocksworld_problem.pddl" for the problem.

@@ -1,0 +1,122 @@
+The system has Action a__0, Action a__1, Action a__10, Action a__11, Action a__12, Action a__13, Action a__14, Action a__15, Action a__16, Action a__17, Action a__18, Action a__19, Action a__2, Action a__20, Action a__3, Action a__4, Action a__5, Action a__6, Action a__7, Action a__8, and Action a__9.
+
+The system has Action ask. Action ask lets the system ask the user about the value of any variable, unless that variable is explicitly marked as cannot be acquired from the user. 
+
+The system has Action ask-last-resort. Action ask-last-resort lets the system ask the user about the value of any variable if the value of the variable cannot be acquired by other actions making the value known. Action ask-last-resort cannot be used if a variable is explicitly marked as cannot be acquired from the user.
+
+The system obtains values from Action ask-last-resort rather than from Action ask.
+
+The system obtains values from Action a__0, Action a__1, and Action a__2 rather than from Action ask or Action ask-last-resort.
+
+To execute Action a__13, Variable v__0 and Variable v__4 should be known.
+Variable v__0 is required and can be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__13, Variable v__2 and Variable v__1 are known.
+
+
+To execute Action a__7, Variable v__6 and Variable v__4 should be known.
+Variable v__6 is required and cannot be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__7, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__12, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__12, Variable v__2 and Variable v__1 are known.
+
+
+To execute Action a__19, Variable v__0 and Variable v__4 should be known.
+Variable v__0 is required and can be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__19, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__2, Variable v__3 and Variable v__4 should be known.
+Variable v__3 is required and cannot be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__2, Variable v__1 and Variable v__6 are known.
+
+
+To execute Action a__16, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__16, Variable v__2 and Variable v__1 are known.
+
+
+To execute Action a__18, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__18, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__17, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__17, Variable v__2 and Variable v__1 are known.
+
+
+To execute Action a__1, Variable v__4 and Variable v__3 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__3 is required and cannot be acquired by asking the user.
+After executing Action a__1, Variable v__2 and Variable v__5 are known.
+
+
+To execute Action a__4, Variable v__4 and Variable v__5 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__5 is required and cannot be acquired by asking the user.
+After executing Action a__4, Variable v__2 and Variable v__6 are known.
+
+
+To execute Action a__20, Variable v__0 and Variable v__4 should be known.
+Variable v__0 is required and can be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__20, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__3, Variable v__5 and Variable v__4 should be known.
+Variable v__5 is required and cannot be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__3, Variable v__6 and Variable v__1 are known.
+
+
+To execute Action a__5, Variable v__4 and Variable v__6 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__6 is required and cannot be acquired by asking the user.
+After executing Action a__5, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__11, Variable v__0 and Variable v__4 should be known.
+Variable v__0 is required and can be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__11, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__8, Variable v__6 and Variable v__4 should be known.
+Variable v__6 is required and cannot be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__8, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__9, Variable v__6 and Variable v__4 should be known.
+Variable v__6 is required and cannot be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__9, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__15, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__15, Variable v__1 and Variable v__2 are known.
+
+
+To execute Action a__10, Variable v__4 and Variable v__6 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__6 is required and cannot be acquired by asking the user.
+After executing Action a__10, Variable v__2 and Variable v__1 are known.
+
+
+To execute Action a__14, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__14, Variable v__2 and Variable v__1 are known.
+
+
+To execute Action a__6, Variable v__4 and Variable v__6 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__6 is required and cannot be acquired by asking the user.
+After executing Action a__6, Variable v__2 and Variable v__6 are known.
+
+
+To execute Action a__0, Variable v__4 and Variable v__0 should be known.
+Variable v__4 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__0, Variable v__3 and Variable v__1 are known.
+
+
+Action map is used when a value for one variable can be used for another variable.
+Values for Variable v__6 can be used for Variable v__4. Values for Variable v__4 can be used for Variable v__6. Values for Variable v__4 can be used for Variable v__2. Values for Variable v__2 can be used for Variable v__4. Values for Variable v__2 can be used for Variable v__1. Values for Variable v__1 can be used for Variable v__2.
+
+The system uses Action map, Action a__0, Action a__1, Action a__10, Action a__11, Action a__12, Action a__13, Action a__14, Action a__15, Action a__16, Action a__17, Action a__18, Action a__19, Action a__2, Action a__20, Action a__3, Action a__4, Action a__5, Action a__6, Action a__7, Action a__8, and Action a__9 over Action ask and Action ask-last-resort.
+The system uses Action ask-last-resort over Action ask.
+
+The goal of the system is to execute Action a__0, Action a__14, Action a__18, Action a__20, and Action a__7.

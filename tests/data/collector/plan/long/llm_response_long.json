@@ -1,0 +1,387 @@
+{
+    "planning_prompt": "CONTEXT\nThe system has actions a__0, a__1, and a__2.\nAction a__1 has input parameters v__13, v__12, and v__11 and it outputs variables v__15, v__16, and v__18. To execute action a__1, variables v__13, v__12, and v__11 must be known. After executing action a__1, variables v__15, v__16, and v__18 are known.\nAction a__2 has input parameters v__23, v__20, and v__21 and it outputs variables v__27, v__28, and v__26. To execute action a__2, variables v__23, v__20, and v__21 must be known. After executing action a__2, variables v__27, v__28, and v__26 are known.\nAction a__0 has input parameters v__3, v__0, and v__2 and it outputs variables v__5, v__6, and v__4. To execute action a__0, variables v__3, v__0, and v__2 must be known. After executing action a__0, variables v__5, v__6, and v__4 are known.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables v__0, v__11, v__12, v__13, v__15, v__16, v__18, v__2, v__20, v__21, v__23, v__26, v__27, v__28, v__3, v__4, v__5, and v__6 can be acquired by asking the user.\nThe goal of the system is to execute action a__0.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\n\n\nHere are some examples.\n\n\nExample #1\nCONTEXT\nThe system has actions A, B, C, D, and E.\nAction D has input parameter z and it outputs variables u and aa. To execute action D, variable z must be known. After executing action D, variables u and aa are known.\nAction B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.\nAction A has input parameters cc and aa and it outputs variable bb. To execute action A, variables cc and aa must be known. After executing action A, variable bb is known.\nAction E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.\nAction C has input parameter bb. To execute action C, variable bb must be known.\nValues are available already for variable cc.\nAction map is used when a value for one variable can be used for another variable.\nAction map can determine the value of variable cc from variable bb.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables aa, u, and z cannot be acquired by asking the user.\nVariables bb, cc, x, and y can be acquired by asking the user.\nThe goal of the system is to execute actions E and C.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\nPLAN EXPLANATION\n0. Acquire the value of y by asking the user. y is required later by action E.\n1. Acquire the value of x by asking the user. x is required later by action E.\n2. Execute action E with x and y as inputs. This will result in acquiring bb. bb is required later by action C. Since executing E was a goal of this plan, return the results of E(x, y) to the user.\n3. Execute action C with bb as input. Since executing C was a goal of this plan, return the results of C(bb) to the user.\nPLAN\n[0] ask(y)\n[1] ask(x)\n[2] bb = E(x, y)\n[3] C(bb)\n\nExample #2\nCONTEXT\nThe system has actions B, D, and E.\nAction B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.\nAction D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.\nAction E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.\nValues are available already for variables bb and z.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables aa and z cannot be acquired by asking the user.\nVariables bb, x, and y can be acquired by asking the user.\nThe goal of the system is to execute action D.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\nPLAN EXPLANATION\n0. Execute action D with z as input. This will result in acquiring aa. Since executing D was the goal of this plan, return the results of D(z) to the user.\nPLAN\n[0] aa = D(z)\n\nExample #3\nCONTEXT\nThe system has actions B, C, and E.\nAction C has input parameter bb. To execute action C, variable bb must be known.\nAction B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.\nAction E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.\nValues are available already for variable cc.\nAction map is used when a value for one variable can be used for another variable.\nAction map can determine the value of variable cc from variable bb.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables bb, x, and y can be acquired by asking the user.\nVariable aa cannot be acquired by asking the user.\nThe goal of the system is to execute action B.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\nPLAN EXPLANATION\n0. Execute action B. This will result in acquiring aa. Since executing B was the goal of this plan, return the results of B(None) to the user.\nPLAN\n[0] aa = B()\n\nExample #4\nCONTEXT\nThe system has actions A, B, C, D, and E.\nAction D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.\nAction C has input parameter bb. To execute action C, variable bb must be known.\nAction A has input parameter aa and it outputs variable bb. To execute action A, variable aa must be known. After executing action A, variable bb is known.\nAction E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.\nAction B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.\nValues are available already for variable cc.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables aa and z cannot be acquired by asking the user.\nVariables bb, x, and y can be acquired by asking the user.\nThe goal of the system is to execute action D.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\nPLAN EXPLANATION\nno plan\nPLAN\nno plan\n\nExample #5\nCONTEXT\nThe system has actions A, B, C, D, and E.\nAction C has input parameter bb. To execute action C, variable bb must be known.\nAction D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.\nAction A has input parameter aa and it outputs variable bb. To execute action A, variable aa must be known. After executing action A, variable bb is known.\nAction E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.\nAction B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.\nValues are available already for variable cc.\nAction map is used when a value for one variable can be used for another variable.\nAction map can determine the value of variable cc from variable bb.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables bb, x, and y can be acquired by asking the user.\nVariables aa and z cannot be acquired by asking the user.\nThe goal of the system is to execute action C.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\nPLAN EXPLANATION\n0. Get the value of bb from cc which is already known. bb is required later by action C.\n1. Execute action C with bb as input. Since executing C was the goal of this plan, return the results of C(bb) to the user.\nPLAN\n[0] map(cc, bb)\n[1] C(bb)\n\nExample #6\nCONTEXT\nThe system has actions A, B, C, D, and E.\nAction D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.\nAction A has input parameter aa and it outputs variable bb. To execute action A, variable aa must be known. After executing action A, variable bb is known.\nAction C has input parameter bb. To execute action C, variable bb must be known.\nAction E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.\nAction B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.\nValues are available already for variable cc.\nAction map is used when a value for one variable can be used for another variable.\nAction map can determine the value of variable cc from variable bb.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables aa and z cannot be acquired by asking the user.\nVariables bb, x, and y can be acquired by asking the user.\nThe goal of the system is to execute actions A and C.\nINSTRUCTION\nDevelop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'\nPLAN EXPLANATION\n0. Execute action B. This will result in acquiring aa. aa is required later by action A.\n1. Execute action A with aa as input. This will result in acquiring bb. bb is required later by action C. Since executing A was a goal of this plan, return the results of A(aa) to the user.\n2. Execute action C with bb as input. Since executing C was a goal of this plan, return the results of C(bb) to the user.\nPLAN\n[0] aa = B()\n[1] bb = A(aa)\n[2] C(bb)\n\n\nNow output your plan explanation and plan.\n{plan_explanation_and_plan}",
+    "llm_response": {
+        "llm_model_id": "meta-llama/llama-3-3-70b-instruct",
+        "generated_text": "PLAN EXPLANATION\n0. Acquire the value of v__0 by asking the user. v__0 is required later by action a__0.\n1. Acquire the value of v__2 by asking the user. v__2 is required later by action a__0.\n2. Acquire the value of v__3 by asking the user. v__3 is required later by action a__0.\n3. Execute action a__0 with v__0, v__2, and v__3 as inputs. Since executing a__0 was the goal of this plan, return the results of a__0(v__0, v__2, v__3) to the user.\nPLAN\n[0] ask(v__0)\n[1] ask(v__2)\n[2] ask(v__3)\n[3] v__4, v__5, v__6 = a__0(v__0, v__2, v__3)",
+        "perplexity": null,
+        "error_messages": [],
+        "lag": 6.601504
+    },
+    "pddl_generator_output": {
+        "description": "The system has actions a__0, a__1, and a__2.\nAction a__1 has input parameters v__13, v__12, and v__11 and it outputs variables v__15, v__16, and v__18. To execute action a__1, variables v__13, v__12, and v__11 must be known. After executing action a__1, variables v__15, v__16, and v__18 are known.\nAction a__2 has input parameters v__23, v__20, and v__21 and it outputs variables v__27, v__28, and v__26. To execute action a__2, variables v__23, v__20, and v__21 must be known. After executing action a__2, variables v__27, v__28, and v__26 are known.\nAction a__0 has input parameters v__3, v__0, and v__2 and it outputs variables v__5, v__6, and v__4. To execute action a__0, variables v__3, v__0, and v__2 must be known. After executing action a__0, variables v__5, v__6, and v__4 are known.\nThe system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.\nVariables v__0, v__11, v__12, v__13, v__15, v__16, v__18, v__2, v__20, v__21, v__23, v__26, v__27, v__28, v__3, v__4, v__5, and v__6 can be acquired by asking the user.\nThe goal of the system is to execute action a__0.",
+        "pddl_domain": "(define (domain default_name-domain)\n    (:requirements :equality :action-costs :typing)\n    (:types\n        generic - object\n        operator - object\n        has-done-state - object\n        constraint-status - object\n        datum-state - object\n        label - object\n        object\n    )\n\n    (:constants\n        False True - constraint-status\n        certain uncertain unknown - datum-state\n        new_object_generic_0 v__0 v__1 v__10 v__11 v__12 v__13 v__14 v__15 v__16 v__17 v__18 v__19 v__2 v__20 v__21 v__22 v__23 v__24 v__25 v__26 v__27 v__28 v__29 v__3 v__4 v__5 v__6 v__7 v__8 v__9 - generic\n        future past present - has-done-state\n        a__0 a__1 a__2 - operator\n    )\n\n    (:predicates\n        (has_done ?x1 - operator ?x2 - has-done-state)\n        (been_used ?x1 - generic)\n        (new_item ?x1 - generic)\n        (known ?x1 - generic ?x2 - datum-state)\n        (not_slotfillable ?x1 - generic)\n        (is_mappable ?x1 - generic ?x2 - generic)\n        (not_mappable ?x1 - generic ?x2 - generic)\n        (mapped ?x1 - generic)\n        (not_usable ?x1 - generic)\n        (mapped_to ?x1 - generic ?x2 - generic)\n        (free ?x1 - generic)\n        (done_goal_pre )\n        (done_goal_post )\n    )\n\n    (:functions\n        (total-cost ) - number\n        (slot_goodness ?x1 - generic) - number\n        (affinity ?x1 - generic ?x2 - generic) - number\n    )\n\n    \n\n    \n    (:action a__1\n     :parameters ()\n     :precondition (and (not (has_done a__1 past)) (and (known v__11 certain) (and (known v__12 certain) (known v__13 certain))))\n     :effect (and\n        (has_done a__1 present)\n        (been_used v__11)\n        (been_used v__12)\n        (been_used v__13)\n        (free v__15)\n        (known v__15 certain)\n        (free v__18)\n        (known v__18 certain)\n        (free v__16)\n        (known v__16 certain)\n        (not (mapped v__15))\n        (not (mapped v__18))\n        (not (mapped v__16))\n        (increase (total-cost ) 10))\n    )\n\n\n    (:action a__2\n     :parameters ()\n     :precondition (and (not (has_done a__2 past)) (and (known v__20 certain) (and (known v__23 certain) (known v__21 certain))))\n     :effect (and\n        (has_done a__2 present)\n        (been_used v__20)\n        (been_used v__23)\n        (been_used v__21)\n        (free v__26)\n        (known v__26 certain)\n        (free v__28)\n        (known v__28 certain)\n        (free v__27)\n        (known v__27 certain)\n        (not (mapped v__26))\n        (not (mapped v__28))\n        (not (mapped v__27))\n        (increase (total-cost ) 10))\n    )\n\n\n    (:action a__0\n     :parameters ()\n     :precondition (and (not (has_done a__0 past)) (and (known v__3 certain) (and (known v__0 certain) (known v__2 certain))))\n     :effect (and\n        (has_done a__0 present)\n        (been_used v__3)\n        (been_used v__0)\n        (been_used v__2)\n        (free v__5)\n        (known v__5 certain)\n        (free v__4)\n        (known v__4 certain)\n        (free v__6)\n        (known v__6 certain)\n        (not (mapped v__5))\n        (not (mapped v__4))\n        (not (mapped v__6))\n        (increase (total-cost ) 10))\n    )\n\n\n    (:action ask\n     :parameters (?x - generic)\n     :precondition (and (not (known ?x certain)) (not (not_slotfillable ?x)))\n     :effect (and\n        (free ?x)\n        (mapped_to ?x ?x)\n        (known ?x certain)\n        (not (not_usable ?x))\n        (not (mapped ?x))\n        (increase (total-cost ) (slot_goodness ?x)))\n    )\n\n)",
+        "pddl_problem": "(define (problem default_name-problem)\n    (:domain default_name-domain)\n\n    (:objects\n        \n    )\n\n    (:init\n        (= (slot_goodness v__29) 150000.0)\n        (= (slot_goodness v__1) 150000.0)\n        (= (slot_goodness v__7) 150000.0)\n        (= (slot_goodness v__8) 150000.0)\n        (= (slot_goodness v__9) 150000.0)\n        (= (slot_goodness v__10) 150000.0)\n        (= (slot_goodness v__14) 150000.0)\n        (= (slot_goodness v__17) 150000.0)\n        (= (slot_goodness v__19) 150000.0)\n        (= (slot_goodness v__22) 150000.0)\n        (= (slot_goodness v__24) 150000.0)\n        (= (slot_goodness v__25) 150000.0)\n        (= (slot_goodness v__11) 100000.0)\n        (= (slot_goodness v__12) 100000.0)\n        (= (slot_goodness v__13) 100000.0)\n        (= (slot_goodness v__15) 100000.0)\n        (= (slot_goodness v__18) 100000.0)\n        (= (slot_goodness v__16) 100000.0)\n        (= (slot_goodness v__20) 100000.0)\n        (= (slot_goodness v__23) 100000.0)\n        (= (slot_goodness v__21) 100000.0)\n        (= (slot_goodness v__26) 100000.0)\n        (= (slot_goodness v__28) 100000.0)\n        (= (slot_goodness v__27) 100000.0)\n        (= (slot_goodness v__3) 100000.0)\n        (= (slot_goodness v__0) 100000.0)\n        (= (slot_goodness v__2) 100000.0)\n        (= (slot_goodness v__5) 100000.0)\n        (= (slot_goodness v__4) 100000.0)\n        (= (slot_goodness v__6) 100000.0)\n        (= (slot_goodness new_object_generic_0) 150000.0)\n        (= (total-cost ) 0.0)\n        (been_used v__21)\n        (been_used v__12)\n        (been_used v__11)\n        (been_used v__0)\n        (been_used v__2)\n        (been_used v__3)\n        (been_used v__13)\n        (been_used v__23)\n        (been_used v__20)\n        (new_item new_object_generic_0)\n        (mapped_to v__15 v__15)\n        (mapped_to v__1 v__1)\n        (mapped_to v__12 v__12)\n        (mapped_to v__0 v__0)\n        (mapped_to v__10 v__10)\n        (mapped_to v__11 v__11)\n        (mapped_to v__3 v__3)\n        (mapped_to v__19 v__19)\n        (mapped_to v__21 v__21)\n        (mapped_to v__26 v__26)\n        (mapped_to v__13 v__13)\n        (mapped_to new_object_generic_0 new_object_generic_0)\n        (mapped_to v__24 v__24)\n        (mapped_to v__25 v__25)\n        (mapped_to v__18 v__18)\n        (mapped_to v__16 v__16)\n        (mapped_to v__8 v__8)\n        (mapped_to v__17 v__17)\n        (mapped_to v__6 v__6)\n        (mapped_to v__4 v__4)\n        (mapped_to v__23 v__23)\n        (mapped_to v__5 v__5)\n        (mapped_to v__27 v__27)\n        (mapped_to v__9 v__9)\n        (mapped_to v__7 v__7)\n        (mapped_to v__29 v__29)\n        (mapped_to v__28 v__28)\n        (mapped_to v__22 v__22)\n        (mapped_to v__2 v__2)\n        (mapped_to v__14 v__14)\n        (mapped_to v__20 v__20)\n    )\n\n    (:goal\n        (has_done a__0 present)\n    )\n\n    \n    \n    (:metric minimize (total-cost ))\n)\n\n",
+        "list_of_plans": [
+            {
+                "cost": 300010.0,
+                "length": 4.0,
+                "metadata": null,
+                "reference": [
+                    "ask v__3",
+                    "ask v__2",
+                    "ask v__0",
+                    "a__0 "
+                ],
+                "plan": [
+                    {
+                        "name": "ask",
+                        "parameters": [],
+                        "inputs": [
+                            "v__3"
+                        ],
+                        "outputs": []
+                    },
+                    {
+                        "name": "ask",
+                        "parameters": [],
+                        "inputs": [
+                            "v__2"
+                        ],
+                        "outputs": []
+                    },
+                    {
+                        "name": "ask",
+                        "parameters": [],
+                        "inputs": [
+                            "v__0"
+                        ],
+                        "outputs": []
+                    },
+                    {
+                        "name": "a__0",
+                        "parameters": [],
+                        "inputs": [
+                            "v__3",
+                            "v__0",
+                            "v__2"
+                        ],
+                        "outputs": [
+                            "v__5",
+                            "v__4",
+                            "v__6"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "prettified_plans": "\n\n---- Plan #0 ----\nCost: 300010.0, Length: 4\n\n[0] ask(v__3)\n[1] ask(v__2)\n[2] ask(v__0)\n[3] a__0(v__3, v__0, v__2)",
+        "prettified_optimal_plan_forward": "0. Acquire the value of v__3 by asking the user.\n1. Acquire the value of v__2 by asking the user.\n2. Acquire the value of v__0 by asking the user.\n3. Execute action a__0 with v__3, v__0, and v__2 as inputs. This will result in acquiring v__5, v__4, and v__6. Since executing a__0 was the goal of this plan, return the results of a__0(v__3, v__0, v__2) to the user.",
+        "sample_hash": "0a1ae01625c967979df201361864a1e8",
+        "agent_info_generator_input": {
+            "num_agents": 3,
+            "num_var": 30,
+            "should_objects_known_in_memory": false,
+            "num_input_parameters": 3,
+            "num_samples": 1,
+            "num_goal_agents": 1,
+            "proportion_coupled_agents": 0.0,
+            "proportion_slot_fillable_variables": 0.625,
+            "proportion_mappable_variables": 0.0,
+            "num_var_types": 0,
+            "slot_filler_option": null,
+            "name_generator": "NUMBER",
+            "error_message": null
+        },
+        "compiler_planner_lag_millisecond": 164.786865234375,
+        "planner_response": {
+            "list_of_plans": [
+                {
+                    "cost": 300010.0,
+                    "length": 4.0,
+                    "metadata": null,
+                    "reference": [
+                        "ask v__3",
+                        "ask v__2",
+                        "ask v__0",
+                        "a__0 "
+                    ],
+                    "plan": [
+                        {
+                            "name": "ask",
+                            "parameters": [],
+                            "inputs": [
+                                "v__3"
+                            ],
+                            "outputs": []
+                        },
+                        {
+                            "name": "ask",
+                            "parameters": [],
+                            "inputs": [
+                                "v__2"
+                            ],
+                            "outputs": []
+                        },
+                        {
+                            "name": "ask",
+                            "parameters": [],
+                            "inputs": [
+                                "v__0"
+                            ],
+                            "outputs": []
+                        },
+                        {
+                            "name": "a__0",
+                            "parameters": [],
+                            "inputs": [
+                                "v__3",
+                                "v__0",
+                                "v__2"
+                            ],
+                            "outputs": [
+                                "v__5",
+                                "v__4",
+                                "v__6"
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "error_running_planner": false,
+            "is_no_solution": false,
+            "no_plan_needed": false,
+            "is_timeout": false,
+            "stderr": null,
+            "planner_output": null,
+            "planner_error": null,
+            "is_parse_error": false
+        },
+        "agent_info_generator_output_item": {
+            "available_agents": [
+                {
+                    "agent_id": "a__1",
+                    "actuator_signature": {
+                        "in_sig_full": [
+                            {
+                                "name": "v__11",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__12",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__13",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            }
+                        ],
+                        "out_sig_full": [
+                            {
+                                "name": "v__15",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__18",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__16",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "agent_id": "a__2",
+                    "actuator_signature": {
+                        "in_sig_full": [
+                            {
+                                "name": "v__20",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__23",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__21",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            }
+                        ],
+                        "out_sig_full": [
+                            {
+                                "name": "v__26",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__28",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__27",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "agent_id": "a__0",
+                    "actuator_signature": {
+                        "in_sig_full": [
+                            {
+                                "name": "v__3",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__0",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__2",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            }
+                        ],
+                        "out_sig_full": [
+                            {
+                                "name": "v__5",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__4",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            },
+                            {
+                                "name": "v__6",
+                                "data_type": null,
+                                "mappable": false,
+                                "slot_fillable": true
+                            }
+                        ]
+                    }
+                }
+            ],
+            "goal_agent_ids": [
+                "a__0"
+            ],
+            "mappings": [],
+            "available_data": [
+                [
+                    "v__29",
+                    null
+                ],
+                [
+                    "v__1",
+                    null
+                ],
+                [
+                    "v__7",
+                    null
+                ],
+                [
+                    "v__8",
+                    null
+                ],
+                [
+                    "v__9",
+                    null
+                ],
+                [
+                    "v__10",
+                    null
+                ],
+                [
+                    "v__14",
+                    null
+                ],
+                [
+                    "v__17",
+                    null
+                ],
+                [
+                    "v__19",
+                    null
+                ],
+                [
+                    "v__22",
+                    null
+                ],
+                [
+                    "v__24",
+                    null
+                ],
+                [
+                    "v__25",
+                    null
+                ]
+            ],
+            "agent_info_generator_input": {
+                "num_agents": 3,
+                "num_var": 30,
+                "should_objects_known_in_memory": false,
+                "num_input_parameters": 3,
+                "num_samples": 1,
+                "num_goal_agents": 1,
+                "proportion_coupled_agents": 0.0,
+                "proportion_slot_fillable_variables": 0.625,
+                "proportion_mappable_variables": 0.0,
+                "num_var_types": 0,
+                "slot_filler_option": null,
+                "name_generator": "NUMBER",
+                "error_message": null
+            }
+        },
+        "planning_datum_tag": {
+            "number_of_agents": 3,
+            "number_of_variables": 30,
+            "input_parameters_per_agent": 6,
+            "coupling_of_agents": 0.0,
+            "parameterized": false,
+            "enable_slots": true,
+            "enable_slotting_cost": false,
+            "enable_maps": false,
+            "enable_mapping_cost": false,
+            "number_of_goals": 1,
+            "operators_as_goal": true,
+            "objects_as_goal": false,
+            "or_goals": false,
+            "constraints_in_memory": false,
+            "constraints_in_spec": false,
+            "constraints_in_goal": false,
+            "constraints_in_input": false,
+            "constraints_in_output": false,
+            "enable_typing": false,
+            "flat_type_hierarchy": false,
+            "number_of_types": -1,
+            "tristate_variables": false,
+            "objects_in_memory": false,
+            "history_in_memory": false,
+            "failure_in_history": false,
+            "length_of_sequence": 4
+        }
+    },
+    "is_concise": false
+}

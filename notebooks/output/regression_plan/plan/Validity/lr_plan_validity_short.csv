@@ -1,0 +1,70 @@
+﻿Deepseek-v3,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+-0.0357,-396.85,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,-3.0245,5.572,-0.543,0.587,-13.945,7.896
+actions,45.4039,6.845,6.633,0,31.988,58.82
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,0,      nan,      nan,   nan,      nan,      nan
+slot-fillable variables,2.5845,6.808,0.38,0.704,-10.759,15.928
+goals,0,      nan,      nan,   nan,      nan,      nan
+Granite-3.3-8B-instruct,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+0.01306,-1352.2,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,-5.658,2.837,-1.994,0.046,-11.219,-0.097
+actions,0,      nan,      nan,   nan,      nan,      nan
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,-5.5151,2.842,-1.941,0.052,-11.084,0.054
+slot-fillable variables,0,      nan,      nan,   nan,      nan,      nan
+goals,0,      nan,      nan,   nan,      nan,      nan
+Llama-3.1-405B-instruct-fp8,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+0.1559,-713.1,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,-56.0808,5.887,-9.527,0,-67.618,-44.543
+actions,99.9576,7.79,12.832,0,84.69,115.225
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,1.2189,3.931,0.31,0.757,-6.486,8.924
+slot-fillable variables,25.7175,7.369,3.49,0,11.275,40.16
+goals,0,      nan,      nan,   nan,      nan,      nan
+Llama-3.3-70B-instruct,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+-0.01675,-1300,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,0,      nan,      nan,   nan,      nan,      nan
+actions,0,      nan,      nan,   nan,      nan,      nan
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,9.1485,3.029,3.02,0.003,3.211,15.086
+slot-fillable variables,8.7886,3.01,2.92,0.003,2.89,14.687
+goals,0,      nan,      nan,   nan,      nan,      nan
+Llama-3.1-8B-instruct,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+0.08154,-339.31,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,-4.00E-16,17.191,-2.32E-17,1,-33.694,33.694
+actions,-32.2708,9.824,-3.285,0.001,-51.525,-13.017
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,0,      nan,      nan,   nan,      nan,      nan
+slot-fillable variables,0,      nan,      nan,   nan,      nan,      nan
+goals,-99.841,20.12,-4.962,0,-139.276,-60.406
+Mixtral-8x22B-instruct-v0.1,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+-0.008253,-1185.3,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,0,      nan,      nan,   nan,      nan,      nan
+actions,0,      nan,      nan,   nan,      nan,      nan
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,0,      nan,      nan,   nan,      nan,      nan
+slot-fillable variables,29.6337,4.892,6.057,0,20.045,39.223
+goals,8.0143,4.786,1.674,0.094,-1.366,17.395
+Qwen2.5-72B-Instruct,,,,,,
+Pseudo R-squ,Log-Likelihood,,,,,
+-0.03739,-834.25,,,,,
+  ,   coef   , std err ,    z    ,$P>|z|$,  [0.025 ,  0.975] 
+optimal plan length,-3.29E-15,5.972,-5.51E-16,1,-11.705,11.705
+actions,50.0114,7.328,6.825,0,35.648,64.374
+arity,0,      nan,      nan,   nan,      nan,      nan
+coupling,4.4832,4.009,1.118,0.263,-3.374,12.341
+slot-fillable variables,19.8769,7.324,2.714,0.007,5.522,34.232
+goals,0,      nan,      nan,   nan,      nan,      nan

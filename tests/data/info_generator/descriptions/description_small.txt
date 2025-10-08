@@ -1,0 +1,26 @@
+The system has Action a__0, Action a__1, and Action a__2.
+The system has Variable v__0, Variable v__1, Variable v__2, Variable v__3, Variable v__4, and Variable v__5.
+The system has Action ask. Action ask is less preferred than acquiring the value of a variable through other actions. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user.
+The system prefers to obtain values from Action ask-last-resort rather than from Action ask.
+
+
+To execute Action a__2, Variable v__0 and Variable v__1 should be known.
+Variable v__0 is required and can be acquired by asking the user. Variable v__1 is required and can be acquired by asking the user.
+After executing Action a__2, Variable v__3 and Variable v__2 are known.
+
+
+To execute Action a__1, Variable v__5 and Variable v__4 should be known.
+Variable v__5 is required and can be acquired by asking the user. Variable v__4 is required and can be acquired by asking the user.
+After executing Action a__1, Variable v__3 and Variable v__2 are known.
+
+
+To execute Action a__0, Variable v__1 and Variable v__0 should be known.
+Variable v__1 is required and can be acquired by asking the user. Variable v__0 is required and can be acquired by asking the user.
+After executing Action a__0, Variable v__4 and Variable v__3 are known.
+
+
+Action map is used when a value for one variable can be used for another variable.
+Values for Variable v__4 can be used for Variable v__3. Values for Variable v__3 can be used for Variable v__4. Values for Variable v__3 can be used for Variable v__5. Values for Variable v__5 can be used for Variable v__3.
+
+
+The goal of the system is to execute Action a__1.

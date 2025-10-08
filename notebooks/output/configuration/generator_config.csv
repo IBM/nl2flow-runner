@@ -1,0 +1,6 @@
+﻿,values
+actions,"$2\, 3\, 4\, 5$"
+arity,"1, 2, 3"
+coupling,"0, 0.375, 0.626, 1.0"
+slot-fillable variables,"0.375, 0.626, 1.0"
+goals,"1, 2"

@@ -1,0 +1,73 @@
+from tarski.syntax import *
+from tarski.model import *
+from tarski import planning
+
+# Define the domain
+domain = TemporalPlanningDomain(
+    name='system',
+    actions=[
+        ActionSymbol('a__0'),
+        ActionSymbol('a__1'),
+        ActionSymbol('a__10'),
+        ActionSymbol('a__11'),
+        ActionSymbol('a__12'),
+        ActionSymbol('a__13'),
+        ActionSymbol('a__14'),
+        ActionSymbol('a__15'),
+        ActionSymbol('a__16'),
+        ActionSymbol('a__17'),
+        ActionSymbol('a__18'),
+        ActionSymbol('a__19'),
+        ActionSymbol('a__2'),
+        ActionSymbol('a__20'),
+        ActionSymbol('a__3'),
+        ActionSymbol('a__4'),
+        ActionSymbol('a__5'),
+        ActionSymbol('a__6'),
+        ActionSymbol('a__7'),
+        ActionSymbol('a__8'),
+        ActionSymbol('a__9'),
+        ActionSymbol('ask'),
+        ActionSymbol('ask-last-resort')
+    ],
+    variables=[
+        TypedVariable('v__0', Object),
+        TypedVariable('v__1', Object),
+        TypedVariable('v__2', Object),
+        TypedVariable('v__3', Object),
+        TypedVariable('v__4', Object),
+        TypedVariable('v__5', Object),
+        TypedVariable('v__6', Object)
+    ],
+    events=[]
+)
+
+# Define the problem
+problem = TemporalPlanningProblem(
+    domain=domain,
+    name='system_problem',
+    init=[
+        # Define the initial state
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__0')))),
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__1')))),
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__2')))),
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__3')))),
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__4')))),
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__5')))),
+        FluentFormula(Equals(FunctionExpression('value', Constant('v__6'))))
+    ],
+    goal=Conjunction(
+        # Define the goal state
+        FluentFormula(HoldsAt(AtomicFormula('a__0'), Interval(0, INF))),
+        FluentFormula(HoldsAt(AtomicFormula('a__14'), Interval(0, INF))),
+        FluentFormula(HoldsAt(AtomicFormula('a__18'), Interval(0, INF))),
+        FluentFormula(HoldsAt(AtomicFormula('a__20'), Interval(0, INF))),
+        FluentFormula(HoldsAt(AtomicFormula('a__7'), Interval(0, INF)))
+    ),
+    bounds={},
+    max_time=INF
+)
+
+# Solve the problem
+plan, _ = planning.linearize_and_extract_planning_problem(problem)
+print(plan)

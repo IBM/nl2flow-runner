@@ -1,0 +1,93 @@
+Example #1
+CONTEXT
+The system has actions A, B, C, D, and E.
+Action B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.
+Action E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.
+Action A has input parameter aa and it outputs variable bb. To execute action A, variable aa must be known. After executing action A, variable bb is known.
+Action C has input parameter bb. To execute action C, variable bb must be known.
+Action D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.
+Values are available already for variable cc.
+Action map is used when a value for one variable can be used for another variable.
+Action map can determine the value of variable cc from variable bb.
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+Variables aa and z cannot be acquired by asking the user.
+Variables bb, x, and y can be acquired by asking the user.
+The goal of the system is to execute actions A and C.
+INSTRUCTION
+Write a json to describe the context.
+JSON
+{"actions":[{"id":"B","input":[],"output":["aa"]},{"id":"E","input":["x","y"],"output":["bb"]},{"id":"A","input":["aa"],"output":["bb"]},{"id":"C","input":["bb"],"output":[]},{"id":"D","input":["z"],"output":["aa"]}],"mappings":[["cc","bb"]],"available_data":["cc"],"askable_parameters":["x","y","bb"],"unaskable_parameters":["aa","z"],"goal_action_ids":["A","C"]}
+
+Example #2
+CONTEXT
+The system has actions B, D, and E.
+Action E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.
+Action B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.
+Action D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.
+Values are available already for variables bb and z.
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+Variables bb, x, and y can be acquired by asking the user.
+Variables aa and z cannot be acquired by asking the user.
+The goal of the system is to execute action D.
+INSTRUCTION
+Write a json to describe the context.
+JSON
+{"actions":[{"id":"E","input":["x","y"],"output":["bb"]},{"id":"B","input":[],"output":["aa"]},{"id":"D","input":["z"],"output":["aa"]}],"mappings":[],"available_data":["z","bb"],"askable_parameters":["x","y","bb"],"unaskable_parameters":["aa","z"],"goal_action_ids":["D"]}
+
+Example #3
+CONTEXT
+The system has actions B, C, and E.
+Action B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.
+Action E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.
+Action C has input parameter bb. To execute action C, variable bb must be known.
+Values are available already for variable cc.
+Action map is used when a value for one variable can be used for another variable.
+Action map can determine the value of variable cc from variable bb.
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+Variable aa cannot be acquired by asking the user.
+Variables bb, x, and y can be acquired by asking the user.
+The goal of the system is to execute action B.
+INSTRUCTION
+Write a json to describe the context.
+JSON
+{"actions":[{"id":"B","input":[],"output":["aa"]},{"id":"E","input":["x","y"],"output":["bb"]},{"id":"C","input":["bb"],"output":[]}],"mappings":[["cc","bb"]],"available_data":["cc"],"askable_parameters":["x","y","bb"],"unaskable_parameters":["aa"],"goal_action_ids":["B"]}
+
+Example #4
+CONTEXT
+The system has actions A, B, C, D, and E.
+Action E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.
+Action D has input parameter z and it outputs variables u and aa. To execute action D, variable z must be known. After executing action D, variables u and aa are known.
+Action C has input parameter bb. To execute action C, variable bb must be known.
+Action A has input parameters cc and aa and it outputs variable bb. To execute action A, variables cc and aa must be known. After executing action A, variable bb is known.
+Action B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.
+Values are available already for variable cc.
+Action map is used when a value for one variable can be used for another variable.
+Action map can determine the value of variable cc from variable bb.
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+Variables bb, cc, x, and y can be acquired by asking the user.
+Variables aa, u, and z cannot be acquired by asking the user.
+The goal of the system is to execute actions E and C.
+INSTRUCTION
+Write a json to describe the context.
+JSON
+{"actions":[{"id":"E","input":["x","y"],"output":["bb"]},{"id":"D","input":["z"],"output":["aa","u"]},{"id":"C","input":["bb"],"output":[]},{"id":"A","input":["aa","cc"],"output":["bb"]},{"id":"B","input":[],"output":["aa"]}],"mappings":[["cc","bb"]],"available_data":["cc"],"askable_parameters":["x","y","bb","cc"],"unaskable_parameters":["z","aa","u"],"goal_action_ids":["E","C"]}
+
+Example #5
+CONTEXT
+The system has actions A, B, C, D, and E.
+Action D has input parameter z and it outputs variable aa. To execute action D, variable z must be known. After executing action D, variable aa is known.
+Action A has input parameter aa and it outputs variable bb. To execute action A, variable aa must be known. After executing action A, variable bb is known.
+Action B outputs variable aa. Action B can be executed without knowing the value of any variable. After executing action B, variable aa is known.
+Action E has input parameters x and y and it outputs variable bb. To execute action E, variables x and y must be known. After executing action E, variable bb is known.
+Action C has input parameter bb. To execute action C, variable bb must be known.
+Values are available already for variable cc.
+Action map is used when a value for one variable can be used for another variable.
+Action map can determine the value of variable cc from variable bb.
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+Variables aa and z cannot be acquired by asking the user.
+Variables bb, x, and y can be acquired by asking the user.
+The goal of the system is to execute action C.
+INSTRUCTION
+Write a json to describe the context.
+JSON
+{"actions":[{"id":"D","input":["z"],"output":["aa"]},{"id":"A","input":["aa"],"output":["bb"]},{"id":"B","input":[],"output":["aa"]},{"id":"E","input":["x","y"],"output":["bb"]},{"id":"C","input":["bb"],"output":[]}],"mappings":[["cc","bb"]],"available_data":["cc"],"askable_parameters":["bb","x","y"],"unaskable_parameters":["z","aa"],"goal_action_ids":["C"]}

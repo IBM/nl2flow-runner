@@ -1,0 +1,89 @@
+{
+  "description": "The system has Action a__0, Action a__1, and Action a__2.\nVariables v__0, v__1, v__2, v__3, and v__4 can be acquired by asking the user.\nThe system has Action ask. Action ask is less preferred than acquiring the value of a variable through other actions. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user.\nTo execute Action a__2, Variable v__4 should be known.\nAfter executing Action a__2, Variable v__1 is known.\nTo execute Action a__1, Variable v__2 should be known.\nAfter executing Action a__1, Variable v__3 is known.\nTo execute Action a__0, Variable v__0 should be known.\nAfter executing Action a__0, Variable v__2 is known.\nAction map is used when a value for one variable can be used for another variable.\nValues for Variable v__0 can be used for Variable v__1. Values for Variable v__1 can be used for Variable v__0. Values for Variable v__1 can be used for Variable v__4. Values for Variable v__4 can be used for Variable v__1.\nThe goal of the system is to execute Action a__1.",
+  "pddl_domain": "(define (domain default_name-domain)\n    (:requirements :equality :action-costs :typing)\n    (:types\n        generic - object\n        operator - object\n        has-done-state - object\n        constraint-status - object\n        datum-state - object\n        object\n    )\n\n    (:constants\n        False True - constraint-status\n        certain uncertain unknown - datum-state\n        new_object_generic_0 v__0 v__1 v__2 v__3 v__4 - generic\n        future past present - has-done-state\n        a__0 a__1 a__2 - operator\n    )\n\n    (:predicates\n        (has_done ?x1 - operator ?x2 - has-done-state)\n        (been_used ?x1 - generic)\n        (new_item ?x1 - generic)\n        (known ?x1 - generic ?x2 - datum-state)\n        (not_slotfillable ?x1 - generic)\n        (is_mappable ?x1 - generic ?x2 - generic)\n        (not_mappable ?x1 - generic ?x2 - generic)\n        (mapped ?x1 - generic)\n        (not_usable ?x1 - generic)\n        (mapped_to ?x1 - generic ?x2 - generic)\n        (free ?x1 - generic)\n        (done_goal_pre )\n        (done_goal_post )\n    )\n\n    (:functions\n        (total-cost ) - number\n        (slot_goodness ?x1 - generic) - number\n        (affinity ?x1 - generic ?x2 - generic) - number\n    )\n\n    \n\n    \n    (:action a__2\n     :parameters ()\n     :precondition (and (known v__4 certain) (not (has_done a__2 past)))\n     :effect (and\n        (has_done a__2 present)\n        (been_used v__4)\n        (free v__1)\n        (known v__1 certain)\n        (not (mapped v__1))\n        (increase (total-cost ) 10))\n    )\n\n\n    (:action a__1\n     :parameters ()\n     :precondition (and (known v__2 certain) (not (has_done a__1 past)))\n     :effect (and\n        (has_done a__1 present)\n        (been_used v__2)\n        (free v__3)\n        (known v__3 certain)\n        (not (mapped v__3))\n        (increase (total-cost ) 10))\n    )\n\n\n    (:action a__0\n     :parameters ()\n     :precondition (and (known v__0 certain) (not (has_done a__0 past)))\n     :effect (and\n        (has_done a__0 present)\n        (been_used v__0)\n        (free v__2)\n        (known v__2 certain)\n        (not (mapped v__2))\n        (increase (total-cost ) 10))\n    )\n\n\n    (:action ask\n     :parameters (?x - generic)\n     :precondition (and (not (known ?x certain)) (not (not_slotfillable ?x)))\n     :effect (and\n        (free ?x)\n        (mapped_to ?x ?x)\n        (known ?x certain)\n        (not (not_usable ?x))\n        (not (mapped ?x))\n        (increase (total-cost ) (slot_goodness ?x)))\n    )\n\n\n    (:action map--free-alt\n     :parameters (?x - generic ?y - generic)\n     :precondition (and (known ?x certain) (is_mappable ?x ?y) (not (not_mappable ?x ?y)) (not (mapped_to ?x ?y)) (not (new_item ?y)) (free ?x))\n     :effect (and\n        (known ?y certain)\n        (mapped_to ?x ?y)\n        (mapped ?x)\n        (not (been_used ?y))\n        (not (not_usable ?y))\n        (free ?y)\n        (increase (total-cost ) 1000))\n    )\n\n\n    (:action map\n     :parameters (?x - generic ?y - generic)\n     :precondition (and (known ?x certain) (is_mappable ?x ?y) (not (not_mappable ?x ?y)) (not (mapped_to ?x ?y)) (not (new_item ?y)))\n     :effect (and\n        (known ?y certain)\n        (mapped_to ?x ?y)\n        (mapped ?x)\n        (not (been_used ?y))\n        (not (not_usable ?y))\n        (increase (total-cost ) (affinity ?x ?y)))\n    )\n\n)",
+  "pddl_problem": "(define (problem default_name-problem)\n    (:domain default_name-domain)\n\n    (:objects\n        \n    )\n\n    (:init\n        (= (slot_goodness v__4) 100000.0)\n        (= (slot_goodness v__1) 100000.0)\n        (= (slot_goodness v__2) 100000.0)\n        (= (slot_goodness v__3) 100000.0)\n        (= (slot_goodness v__0) 100000.0)\n        (= (slot_goodness new_object_generic_0) 150000.0)\n        (= (affinity v__0 v__1) 20.0)\n        (= (affinity v__1 v__0) 20.0)\n        (= (affinity v__1 v__4) 20.0)\n        (= (affinity v__4 v__1) 20.0)\n        (= (total-cost ) 0.0)\n        (been_used v__0)\n        (been_used v__2)\n        (been_used v__4)\n        (new_item new_object_generic_0)\n        (mapped_to v__1 v__1)\n        (mapped_to v__2 v__2)\n        (mapped_to v__4 v__4)\n        (mapped_to new_object_generic_0 new_object_generic_0)\n        (mapped_to v__3 v__3)\n        (mapped_to v__0 v__0)\n        (is_mappable v__1 v__4)\n        (is_mappable v__4 v__1)\n        (is_mappable v__0 v__1)\n        (is_mappable v__1 v__0)\n    )\n\n    (:goal\n        (has_done a__1 present)\n    )\n\n    \n    \n    (:metric minimize (total-cost ))\n)\n\n",
+  "list_of_plans": [
+    {
+      "cost": 100010.0,
+      "length": 2.0,
+      "metadata": null,
+      "reference": [
+        "ask v__2",
+        "a__1 "
+      ],
+      "plan": [
+        {
+          "name": "ask",
+          "inputs": [
+            "v__2"
+          ],
+          "outputs": []
+        },
+        {
+          "name": "a__1",
+          "inputs": [
+            "v__2"
+          ],
+          "outputs": [
+            "v__3"
+          ]
+        }
+      ]
+    }
+  ],
+  "prettified_plans": "\n\n---- Plan #0 ----\nCost: 100010.0, Length: 2\n\n[0] ask(v__2)\n[1] v__3 = a__1(v__2)",
+  "sample_hash": "6",
+  "agent_info_generator_input": {
+    "num_agents": 3,
+    "num_var": 5,
+    "num_input_parameters": 1,
+    "num_samples": 1,
+    "num_goal_agents": 1,
+    "proportion_coupled_agents": 0.5,
+    "proportion_slot_fillable_variables": 1.0,
+    "proportion_mappable_variables": 0.5,
+    "num_var_types": 0,
+    "slot_filler_option": null,
+    "name_generator": "NUMBER",
+    "error_message": null
+  },
+  "compiler_planner_lag_millisecond": 181.178955078125,
+  "planner_response": {
+    "list_of_plans": [
+      {
+        "cost": 100010.0,
+        "length": 2.0,
+        "metadata": null,
+        "reference": [
+          "ask v__2",
+          "a__1 "
+        ],
+        "plan": [
+          {
+            "name": "ask",
+            "inputs": [
+              "v__2"
+            ],
+            "outputs": []
+          },
+          {
+            "name": "a__1",
+            "inputs": [
+              "v__2"
+            ],
+            "outputs": [
+              "v__3"
+            ]
+          }
+        ]
+      }
+    ],
+    "error_running_planner": false,
+    "is_no_solution": false,
+    "is_timeout": false,
+    "stderr": null,
+    "planner_output": null,
+    "planner_error": null,
+    "is_parse_error": false
+  }
+}

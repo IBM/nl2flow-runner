@@ -1,0 +1,15 @@
+                    Logit Regression Results                    
+Dep. Variable:  ,y               ,  No. Observations:  ,  1986  
+Model:          ,Logit           ,  Df Residuals:      ,  1984  
+Method:         ,MLE             ,  Df Model:          ,     1  
+Date:           ,Thu, 24 Jul 2025,  Pseudo R-squ.:     ,-0.08019
+Time:           ,14:48:38        ,  Log-Likelihood:    , -626.92
+converged:      ,True            ,  LL-Null:           , -580.38
+Covariance Type:,nonrobust       ,  LLR p-value:       , 1.000  
+  ,   coef   , std err ,    z    ,P>|z| ,  [0.025 ,  0.975] 
+x1,         0,      nan,      nan,   nan,      nan,      nan
+x2,   69.4481,    7.829,    8.871, 0.000,   54.104,   84.792
+x3,         0,      nan,      nan,   nan,      nan,      nan
+x4,         0,      nan,      nan,   nan,      nan,      nan
+x5,   25.5081,    7.597,    3.357, 0.001,   10.617,   40.399
+x6,         0,      nan,      nan,   nan,      nan,      nan

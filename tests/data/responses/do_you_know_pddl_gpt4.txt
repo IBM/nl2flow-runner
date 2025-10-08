@@ -1,0 +1,89 @@
+Yes, I know Planning Domain Definition Language (PDDL). PDDL is a language used to describe planning problems in the field of artificial intelligence. It consists of two parts: the domain description, which defines the actions and predicates, and the problem description, which defines the initial state and the goal state.
+
+Here's a simple example of a PDDL domain and problem for the classic "block world" problem:
+
+Domain description (blocksworld_domain.pddl):
+
+```
+(define (domain blocksworld)
+  (:requirements :strips :typing)
+  (:types block)
+  (:predicates
+    (on ?x - block ?y - block)
+    (ontable ?x - block)
+    (clear ?x - block)
+    (handempty)
+    (holding ?x - block)
+  )
+
+  (:action pick-up
+    :parameters (?x - block)
+    :precondition (and (clear ?x) (ontable ?x) (handempty))
+    :effect (and
+              (not (ontable ?x))
+              (not (clear ?x))
+              (not (handempty))
+              (holding ?x)
+            )
+  )
+
+  (:action put-down
+    :parameters (?x - block)
+    :precondition (holding ?x)
+    :effect (and
+              (ontable ?x)
+              (clear ?x)
+              (handempty)
+              (not (holding ?x))
+            )
+  )
+
+  (:action stack
+    :parameters (?x - block ?y - block)
+    :precondition (and (holding ?x) (clear ?y))
+    :effect (and
+              (not (holding ?x))
+              (not (clear ?y))
+              (clear ?x)
+              (handempty)
+              (on ?x ?y)
+            )
+  )
+
+  (:action unstack
+    :parameters (?x - block ?y - block)
+    :precondition (and (on ?x ?y) (clear ?x) (handempty))
+    :effect (and
+              (holding ?x)
+              (clear ?y)
+              (not (on ?x ?y))
+              (not (clear ?x))
+              (not (handempty))
+            )
+  )
+)
+```
+
+Problem description (blocksworld_problem.pddl):
+
+```
+(define (problem blocksworld-problem)
+  (:domain blocksworld)
+  (:objects a b c - block)
+  (:init
+    (ontable a)
+    (ontable b)
+    (ontable c)
+    (clear a)
+    (clear b)
+    (clear c)
+    (handempty)
+  )
+  (:goal (and
+           (on a b)
+           (on b c)
+         ))
+)
+```
+
+In this example, the domain describes the actions (pick-up, put-down, stack, unstack) and predicates (on, ontable, clear, handempty, holding) for a block world problem. The problem description defines the initial state (three blocks on the table, all clear, and an empty hand) and the goal state (block A on block B, and block B on block C).

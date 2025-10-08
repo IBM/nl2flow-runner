@@ -1,0 +1,79 @@
+CONTEXT:
+<INSERT_CONTEXT_HERE>
+
+INSTRUCTION:
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs=<action-name>(<parameters>).When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan.'
+
+Here are some examples.
+
+Example #1:
+CONTEXT:
+The system has Action A and Action B.
+Variables aa and bb cannot be acquired by asking the user.
+The system has Action ask. Action ask is less preferred than acquiring the value of a variable through other actions. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user.
+To execute Action A, Variable aa should be known.
+After executing Action A, Variable bb is known.
+Action B can be executed without knowing any variable
+After executing Action B, Variable aa is known.
+The goal of the system is to execute Action A.
+INSTRUCTION:
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs=<action-name>(<parameters>).When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan.'
+Plan:
+B()->A(aa)
+
+Example #2:
+CONTEXT:
+The system has Action A, Action B, and Action C.
+Variables aa and bb cannot be acquired by asking the user.
+The system has Action ask. Action ask is less preferred than acquiring the value of a variable through other actions. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user.
+To execute Action C, Variable bb should be known.
+To execute Action A, Variable aa should be known.
+After executing Action A, Variable bb is known.
+Action B can be executed without knowing any variable
+After executing Action B, Variable aa is known.
+The goal of the system is to execute Action C.
+INSTRUCTION:
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs=<action-name>(<parameters>).When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan.'
+Plan:
+B()->A(aa)->C(bb)
+
+Example #3:
+CONTEXT:
+The system has Action A, Action B, Action C, and Action D.
+Variables aa, bb, and z cannot be acquired by asking the user.
+The system has Action ask. Action ask is less preferred than acquiring the value of a variable through other actions. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user.
+To execute Action C, Variable bb should be known.
+To execute Action A, Variable aa should be known.
+After executing Action A, Variable bb is known.
+To execute Action D, Variable z should be known.
+After executing Action D, Variable aa is known.
+Action B can be executed without knowing any variable
+After executing Action B, Variable aa is known.
+The goal of the system is to execute Action D.
+INSTRUCTION:
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs=<action-name>(<parameters>).When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan.'
+Plan:
+no plan
+
+Example #4:
+CONTEXT:
+The system has Action A, Action B, Action C, Action D, and Action E.
+Variables aa, bb, and z cannot be acquired by asking the user.
+Variable y can be acquired by asking the user.
+The system has Action ask. Action ask is less preferred than acquiring the value of a variable through other actions. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user.
+To execute Action C, Variable bb should be known.
+To execute Action A, Variable aa should be known.
+After executing Action A, Variable bb is known.
+To execute Action D, Variable z should be known.
+After executing Action D, Variable aa is known.
+To execute Action E, Variable y should be known.
+After executing Action E, Variable aa is known.
+Action B can be executed without knowing any variable
+After executing Action B, Variable aa is known.
+The goal of the system is to execute Action E.
+INSTRUCTION:
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs=<action-name>(<parameters>).When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan.'
+Plan:
+ask(y)->E(y)
+
+Now output your plan: {output}

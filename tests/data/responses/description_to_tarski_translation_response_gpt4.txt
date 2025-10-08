@@ -1,0 +1,87 @@
+```python
+import tarski
+from tarski.syntax import *
+
+# Create a language
+lang = tarski.language()
+
+# Define actions
+actions = [lang.function(f'a__{i}', lang.Boolean) for i in range(21)]
+slot_filler = lang.function('slot_filler', lang.Boolean)
+
+# Define variables
+variables = [lang.function(f'v__{i}', lang.Boolean) for i in range(7)]
+
+# Define action preconditions and effects
+action_preconditions = [
+    (actions[13], [variables[0], variables[4]]),
+    (actions[7], [variables[6], variables[4]]),
+    (actions[12], [variables[4], variables[0]]),
+    (actions[19], [variables[0], variables[4]]),
+    (actions[2], [variables[3], variables[4]]),
+    (actions[16], [variables[4], variables[0]]),
+    (actions[18], [variables[4], variables[0]]),
+    (actions[17], [variables[4], variables[0]]),
+    (actions[1], [variables[4], variables[3]]),
+    (actions[4], [variables[4], variables[5]]),
+    (actions[20], [variables[0], variables[4]]),
+    (actions[3], [variables[5], variables[4]]),
+    (actions[5], [variables[4], variables[6]]),
+    (actions[11], [variables[0], variables[4]]),
+    (actions[8], [variables[6], variables[4]]),
+    (actions[9], [variables[6], variables[4]]),
+    (actions[15], [variables[4], variables[0]]),
+    (actions[10], [variables[4], variables[6]]),
+    (actions[14], [variables[4], variables[0]]),
+    (actions[6], [variables[4], variables[6]]),
+    (actions[0], [variables[4], variables[0]])
+]
+
+action_effects = [
+    (actions[13], [variables[2], variables[1]]),
+    (actions[7], [variables[1], variables[2]]),
+    (actions[12], [variables[2], variables[1]]),
+    (actions[19], [variables[1], variables[2]]),
+    (actions[2], [variables[1], variables[6]]),
+    (actions[16], [variables[2], variables[1]]),
+    (actions[18], [variables[1], variables[2]]),
+    (actions[17], [variables[2], variables[1]]),
+    (actions[1], [variables[2], variables[5]]),
+    (actions[4], [variables[2], variables[6]]),
+    (actions[20], [variables[1], variables[2]]),
+    (actions[3], [variables[6], variables[1]]),
+    (actions[5], [variables[1], variables[2]]),
+    (actions[11], [variables[1], variables[2]]),
+    (actions[8], [variables[1], variables[2]]),
+    (actions[9], [variables[1], variables[2]]),
+    (actions[15], [variables[1], variables[2]]),
+    (actions[10], [variables[2], variables[1]]),
+    (actions[14], [variables[2], variables[1]]),
+    (actions[6], [variables[2], variables[6]]),
+    (actions[0], [variables[3], variables[1]])
+]
+
+# Define variable acquisition
+variable_acquisition = {
+    variables[0]: True,
+    variables[1]: False,
+    variables[2]: False,
+    variables[3]: True,
+    variables[4]: True,
+    variables[5]: False,
+    variables[6]: False
+}
+
+# Define confidence scores
+confidence_scores = {
+    (variables[6], variables[4]): 0.61,
+    (variables[4], variables[6]): 0.61,
+    (variables[4], variables[2]): 0.74,
+    (variables[2], variables[4]): 0.74,
+    (variables[2], variables[1]): 0.9,
+    (variables[1], variables[2]): 0.9
+}
+
+# Define goal
+goal_actions = [actions[0], actions[14], actions[18], actions[20], actions[7]]
+```

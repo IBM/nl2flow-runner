@@ -1,0 +1,177 @@
+Domain:
+
+(define (domain system)
+  (:requirements :typing)
+  (:types variable action)
+  (:predicates 
+    (known ?v - variable)
+    (asked ?v - variable)
+    (cannot-acquire ?v - variable)
+    (map ?v1 - variable ?v2 - variable)
+  )
+  
+  (:action ask
+    :parameters (?v - variable)
+    :precondition (not (cannot-acquire ?v))
+    :effect (and (asked ?v) (known ?v))
+  )
+  
+  (:action ask-last-resort
+    :parameters (?v - variable)
+    :precondition (and (not (cannot-acquire ?v)) (not (asked ?v)))
+    :effect (and (asked ?v) (known ?v))
+  )
+  
+  (:action a__0
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v3) (known ?v1))
+  )
+  
+  (:action a__1
+    :parameters (?v4 - variable ?v3 - variable)
+    :precondition (and (known ?v4) (not (asked ?v3)))
+    :effect (and (known ?v2) (known ?v5))
+  )
+  
+  (:action a__2
+    :parameters (?v3 - variable ?v4 - variable)
+    :precondition (and (not (asked ?v3)) (known ?v4))
+    :effect (and (known ?v1) (known ?v6))
+  )
+  
+  (:action a__3
+    :parameters (?v5 - variable ?v4 - variable)
+    :precondition (and (not (asked ?v5)) (known ?v4))
+    :effect (and (known ?v6) (known ?v1))
+  )
+  
+  (:action a__4
+    :parameters (?v4 - variable ?v5 - variable)
+    :precondition (and (known ?v4) (not (asked ?v5)))
+    :effect (and (known ?v2) (known ?v6))
+  )
+  
+  (:action a__5
+    :parameters (?v4 - variable ?v6 - variable)
+    :precondition (and (known ?v4) (not (asked ?v6)))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__6
+    :parameters (?v4 - variable ?v6 - variable)
+    :precondition (and (known ?v4) (not (asked ?v6)))
+    :effect (and (known ?v2) (known ?v6))
+  )
+  
+  (:action a__7
+    :parameters (?v6 - variable ?v4 - variable)
+    :precondition (and (known ?v6) (known ?v4))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__8
+    :parameters (?v6 - variable ?v4 - variable)
+    :precondition (and (known ?v4) (known ?v6))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__9
+    :parameters (?v6 - variable ?v4 - variable)
+    :precondition (and (known ?v4) (known ?v6))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__10
+    :parameters (?v4 - variable ?v6 - variable)
+    :precondition (and (known ?v4) (known ?v6))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__11
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__12
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__13
+    :parameters (?v0 - variable ?v4 - variable)
+    :precondition (and (not (asked ?v0)) (not (asked ?v4)))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__14
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__15
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__16
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__17
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v2) (known ?v1))
+  )
+  
+  (:action a__18
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__19
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action a__20
+    :parameters (?v4 - variable ?v0 - variable)
+    :precondition (and (known ?v4) (known ?v0))
+    :effect (and (known ?v1) (known ?v2))
+  )
+  
+  (:action map
+    :parameters (?v1 - variable ?v2 - variable)
+    :precondition (and (known ?v1) (map ?v1 ?v2))
+    :effect (known ?v2)
+  )
+)
+
+Problem:
+
+(define (problem system-problem)
+  (:domain system)
+  (:objects 
+    v__0 v__1 v__2 v__3 v__4 v__5 v__6 - variable
+    a__0 a__1 a__2 a__3 a__4 a__5 a__6 a__7 a__8 a__9 a__10 a__11 a__12 a__13 a__14 a__15 a__16 a__17 a__18 a__19 a__20 - action
+  )
+  (:init 
+    (cannot-acquire v__6)
+    (cannot-acquire v__3)
+    (map v__6 v__4)
+    (map v__4 v__6)
+    (map v__4 v__2)
+    (map v__2 v__4)
+    (map v__2 v__1)
+    (map v__1 v__2)
+  )
+  (:goal (and (known v__1) (known v__2) (known v__4) (known v__0) (known v__6)))
+)

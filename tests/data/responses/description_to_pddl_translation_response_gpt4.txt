@@ -1,0 +1,69 @@
+(define (domain system-domain)
+  (:requirements :strips :typing)
+  (:types
+    action variable)
+  (:predicates
+    (known ?v - variable)
+    (acquired ?v - variable)
+    (cannot-be-acquired ?v - variable)
+    (executed ?a - action))
+
+  (:action ask
+    :parameters (?v - variable)
+    :precondition (not (cannot-be-acquired ?v))
+    :effect (acquired ?v))
+
+  (:action ask-last-resort
+    :parameters (?v - variable)
+    :precondition (and (not (acquired ?v)) (not (cannot-be-acquired ?v)))
+    :effect (acquired ?v))
+
+  (:action a__0
+    :parameters ()
+    :precondition (and (acquired v__4) (acquired v__0))
+    :effect (and (known v__3) (known v__1) (executed a__0)))
+
+  (:action a__14
+    :parameters ()
+    :precondition (and (acquired v__4) (acquired v__0))
+    :effect (and (known v__2) (known v__1) (executed a__14)))
+
+  (:action a__18
+    :parameters ()
+    :precondition (and (acquired v__4) (acquired v__0))
+    :effect (and (known v__1) (known v__2) (executed a__18)))
+
+  (:action a__20
+    :parameters ()
+    :precondition (and (acquired v__4) (acquired v__0))
+    :effect (and (known v__1) (known v__2) (executed a__20)))
+
+  (:action a__7
+    :parameters ()
+    :precondition (and (known v__6) (acquired v__4))
+    :effect (and (known v__1) (known v__2) (executed a__7)))
+
+  (:action map
+    :parameters (?v1 - variable ?v2 - variable)
+    :precondition (known ?v1)
+    :effect (known ?v2))
+)
+
+(define (problem system-problem)
+  (:domain system-domain)
+  (:objects
+    v__0 v__1 v__2 v__3 v__4 v__5 v__6 - variable
+    a__0 a__14 a__18 a__20 a__7 - action)
+  (:init
+    (cannot-be-acquired v__6)
+    (cannot-be-acquired v__3)
+    (cannot-be-acquired v__5)
+    (acquired v__0)
+    (acquired v__4))
+  (:goal (and
+    (executed a__0)
+    (executed a__14)
+    (executed a__18)
+    (executed a__20)
+    (executed a__7)))
+)

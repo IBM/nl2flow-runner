@@ -1,0 +1,13 @@
+
+
+---- Plan #0 ----
+Cost: 325063.0, Length: 13.0
+
+Step 0: ask, Inputs: v__0 (generic), Outputs: None
+Step 1: ask, Inputs: v__4 (generic), Outputs: None
+Step 2: map, Inputs: v__4 (generic), v__6 (generic), Outputs: None
+Step 3: a__0, Inputs: v__4 (generic), v__0 (generic), Outputs: v__3 (generic), v__1 (generic)
+Step 4: a__20, Inputs: v__0 (generic), v__4 (generic), Outputs: v__1 (generic), v__2 (generic)
+Step 5: a__18, Inputs: v__4 (generic), v__0 (generic), Outputs: v__1 (generic), v__2 (generic)
+Step 6: a__14, Inputs: v__4 (generic), v__0 (generic), Outputs: v__2 (generic), v__1 (generic)
+Step 7: a__7, Inputs: v__6 (generic), v__4 (generic), Outputs: v__1 (generic), v__2 (generic)

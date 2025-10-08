@@ -1,0 +1,30 @@
+Here is an example of using Tarski to generate a PDDL file for a simple block world domain:
+
+```python
+from tarski.io import PDDLWriter
+from tarski.syntax import *
+
+# Define the domain
+domain = create_language("block-world")
+block = Sort("block")
+domain.add_sort(block)
+on = Predicate("on", (block, block))
+clear = Predicate("clear", (block,))
+domain.add_predicate(on, clear)
+move = Action("move", (block,), (on,))
+domain.add_action(move)
+
+# Define the problem
+problem = create_language("block-world-problem", parent_language=domain)
+a, b, c = Constant("a", block), Constant("b", block), Constant("c", block)
+problem.add_constant(a, b, c)
+problem.add_initial_fact(clear(a), clear(b), on(a, b))
+problem.add_goal_formula(on(a, c))
+
+# Write the PDDL file
+with open("block-world.pddl", "w") as f:
+    writer = PDDLWriter(domain, problem, f)
+    writer.write()
+```
+
+This code defines a block world domain with a single sort `block`, two predicates `on` and `clear`, and one action `move`. It then defines a problem instance with three constants `a`, `b`, and `c`, and an initial state where `a` is on top of `b` and both are clear. The goal is to move `a` onto `c`. Finally, it writes the domain and problem to a PDDL file named `block-world.pddl`.

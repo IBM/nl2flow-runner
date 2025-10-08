@@ -1,0 +1,34 @@
+Yes, I am familiar with PDDL. Here is an example of a PDDL domain and problem file for the blocks world:
+
+Domain file:
+
+```
+(define (domain blocks)
+  (:requirements :strips :typing)
+  (:types block)
+  (:predicates (on ?x - block ?y - block)
+               (clear ?x - block)
+               (holding ?x - block))
+  (:action pick-up
+    :parameters (?x - block)
+    :precondition (and (clear ?x) (not (holding ?x)))
+    :effect (and (holding ?x) (not (clear ?x)) (not (on ?x ?y))))
+  (:action put-down
+    :parameters (?x - block)
+    :precondition (holding ?x)
+    :effect (and (not (holding ?x)) (clear ?x) (not (on ?x ?y))))
+  (:action stack
+    :parameters (?x - block ?y - block)
+    :precondition (and (holding ?x) (clear ?y))
+    :effect (and (not (holding ?x)) (not (clear ?y)) (on ?x ?y) (clear ?x))))
+
+Problem file:
+
+(define (problem blocks-3)
+  (:domain blocks)
+  (:objects a b c)
+  (:init (clear a) (clear b) (clear c) (on a b) (on b c) (not (on a c)) (not (holding a)))
+  (:goal (and (on a b) (on b c))))
+```
+
+This domain and problem file define a blocks world where there are three blocks (a, b, and c) and the goal is to stack block a on top of block b and block b on top of block c. The domain file defines three actions: pick-up, put-down, and stack. The problem file initializes the blocks world with blocks a, b, and c in a specific configuration and specifies the goal of stacking block a on top of block b and block b on top of block c.

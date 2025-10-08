@@ -1,0 +1,9 @@
+To achieve the goal with the minimum number of actions, the system can follow this plan:
+
+1. ask(v__0)
+2. ask(v__4)
+3. a__0(v__4, v__0)
+4. a__14(v__4, v__0)
+5. a__18(v__4, v__0)
+6. a__20(v__4, v__0)
+7. No plan for Action a__7, as Variable v__6 cannot be acquired by asking the user.

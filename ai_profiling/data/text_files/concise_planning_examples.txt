@@ -1,0 +1,252 @@
+Example #1
+CONTEXT
+The system has actions A, B, C, D, and E. To execute an action the values of their inputs must be known.
+
+actions:
+
+name: B
+outputs: aa
+
+name: C
+inputs: bb
+
+name: D
+inputs: z
+outputs: aa
+
+name: E
+inputs: x, y
+outputs: bb
+
+name: A
+inputs: aa
+outputs: bb
+
+Action map is used when a value for one variable can be used for another variable.
+
+mappings: (cc, bb)
+
+available data: cc
+
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+
+askable parameters: bb, x, y
+
+The goal of the system is to execute one or more actions.
+
+goals: C
+INSTRUCTION
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'
+PLAN EXPLANATION
+0. Get the value of bb from cc which is already known. bb is required later by action C.
+1. Execute action C with bb as input. Since executing C was the goal of this plan, return the results of C(bb) to the user.
+PLAN
+[0] map(cc, bb)
+[1] C(bb)
+
+Example #2
+CONTEXT
+The system has actions B, D, and E. To execute an action the values of their inputs must be known.
+
+actions:
+
+name: B
+outputs: aa
+
+name: E
+inputs: x, y
+outputs: bb
+
+name: D
+inputs: z
+outputs: aa
+
+available data: bb, z
+
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+
+askable parameters: x, y, bb
+
+The goal of the system is to execute one or more actions.
+
+goals: D
+INSTRUCTION
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'
+PLAN EXPLANATION
+0. Execute action D with z as input. This will result in acquiring aa. Since executing D was the goal of this plan, return the results of D(z) to the user.
+PLAN
+[0] aa = D(z)
+
+Example #3
+CONTEXT
+The system has actions B, C, and E. To execute an action the values of their inputs must be known.
+
+actions:
+
+name: C
+inputs: bb
+
+name: E
+inputs: x, y
+outputs: bb
+
+name: B
+outputs: aa
+
+Action map is used when a value for one variable can be used for another variable.
+
+mappings: (cc, bb)
+
+available data: cc
+
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+
+askable parameters: bb, x, y
+
+The goal of the system is to execute one or more actions.
+
+goals: B
+INSTRUCTION
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'
+PLAN EXPLANATION
+0. Execute action B. This will result in acquiring aa. Since executing B was the goal of this plan, return the results of B(None) to the user.
+PLAN
+[0] aa = B()
+
+Example #4
+CONTEXT
+The system has actions A, B, C, D, and E. To execute an action the values of their inputs must be known.
+
+actions:
+
+name: D
+inputs: z
+outputs: aa, u
+
+name: E
+inputs: x, y
+outputs: bb
+
+name: A
+inputs: aa, cc
+outputs: bb
+
+name: B
+outputs: aa
+
+name: C
+inputs: bb
+
+Action map is used when a value for one variable can be used for another variable.
+
+mappings: (cc, bb)
+
+available data: cc
+
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+
+askable parameters: x, y, bb, cc
+
+The goal of the system is to execute one or more actions.
+
+goals: E, C
+INSTRUCTION
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'
+PLAN EXPLANATION
+0. Acquire the value of y by asking the user. y is required later by action E.
+1. Acquire the value of x by asking the user. x is required later by action E.
+2. Execute action E with x and y as inputs. This will result in acquiring bb. bb is required later by action C. Since executing E was a goal of this plan, return the results of E(x, y) to the user.
+3. Execute action C with bb as input. Since executing C was a goal of this plan, return the results of C(bb) to the user.
+PLAN
+[0] ask(y)
+[1] ask(x)
+[2] bb = E(x, y)
+[3] C(bb)
+
+Example #5
+CONTEXT
+The system has actions A, B, C, D, and E. To execute an action the values of their inputs must be known.
+
+actions:
+
+name: C
+inputs: bb
+
+name: B
+outputs: aa
+
+name: D
+inputs: z
+outputs: aa
+
+name: E
+inputs: x, y
+outputs: bb
+
+name: A
+inputs: aa
+outputs: bb
+
+available data: cc
+
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+
+askable parameters: bb, x, y
+
+The goal of the system is to execute one or more actions.
+
+goals: D
+INSTRUCTION
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'
+PLAN EXPLANATION
+no plan
+PLAN
+no plan
+
+Example #6
+CONTEXT
+The system has actions A, B, C, D, and E. To execute an action the values of their inputs must be known.
+
+actions:
+
+name: D
+inputs: z
+outputs: aa
+
+name: C
+inputs: bb
+
+name: E
+inputs: x, y
+outputs: bb
+
+name: B
+outputs: aa
+
+name: A
+inputs: aa
+outputs: bb
+
+Action map is used when a value for one variable can be used for another variable.
+
+mappings: (cc, bb)
+
+available data: cc
+
+The system has action ask. Action ask lets the system ask the user about the value of any variable unless that variable is explicitly marked as cannot be acquired from the user. Action ask is less preferred than acquiring the value of a variable through other actions.
+
+askable parameters: bb, x, y
+
+The goal of the system is to execute one or more actions.
+
+goals: A, C
+INSTRUCTION
+Develop a concise plan to achieve the goals. The shorter plan is preferable. A plan consists of individual actions, each represented by its outputs and an action name followed by its parameters in parentheses (e.g., outputs = <action-name>(<parameters>). When it becomes impossible to achieve the objectives, the appropriate course of action should be considered as 'no plan'
+PLAN EXPLANATION
+0. Execute action B. This will result in acquiring aa. aa is required later by action A.
+1. Execute action A with aa as input. This will result in acquiring bb. bb is required later by action C. Since executing A was a goal of this plan, return the results of A(aa) to the user.
+2. Execute action C with bb as input. Since executing C was a goal of this plan, return the results of C(bb) to the user.
+PLAN
+[0] aa = B()
+[1] bb = A(aa)
+[2] C(bb)

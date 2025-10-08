@@ -1,0 +1,8 @@
+a()
+data-mapper_type__of__job_id(job_id, occupation_id)
+slot-filler---job_id()
+slot-filler---list_of_signature_item_spec()
+slot-filler---sf_context()
+slot-filler-for-planner()
+slot-filler---data_objects()
+b()

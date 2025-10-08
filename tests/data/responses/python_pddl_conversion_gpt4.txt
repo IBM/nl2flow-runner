@@ -1,0 +1,11 @@
+There isn't a single "best" Python library for generating PDDL files, as the choice depends on your specific needs and preferences. However, some popular libraries for working with PDDL in Python include:
+
+1. PyPDDL: A lightweight PDDL parser for Python that allows you to create, parse, and manipulate PDDL files. (https://github.com/thiagopbueno/pypddl)
+
+2. Tarski: A more comprehensive library for working with PDDL and other planning languages. It provides parsing, manipulation, and generation of PDDL files, as well as tools for reasoning about planning problems. (https://github.com/aig-upf/tarski)
+
+3. PDDL-Py: A simple PDDL parser for Python that allows you to parse PDDL files and work with their contents. (https://github.com/pucrs-automated-planning/pddl-parser)
+
+4. python-pddl: Another PDDL parser for Python that provides a simple interface for parsing and working with PDDL files. (https://github.com/andrew-ni/python-pddl)
+
+Choose the library that best fits your needs and preferences based on factors such as ease of use, functionality, and compatibility with your project.

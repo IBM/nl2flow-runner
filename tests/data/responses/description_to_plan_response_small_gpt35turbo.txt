@@ -1,0 +1,4 @@
+ask(v__5)
+ask(v__4)
+a__1(v__5, v__4)
+No plan

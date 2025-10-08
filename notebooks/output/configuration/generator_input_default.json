@@ -1,0 +1,49 @@
+{
+  "num_agents": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "num_var": [
+    30
+  ],
+  "num_input_parameters": [
+    1,
+    2,
+    3
+  ],
+  "num_samples": [
+    10
+  ],
+  "num_goal_agents": [
+    1,
+    2
+  ],
+  "proportion_coupled_agents": [
+    0.0,
+    0.375,
+    0.625,
+    1.0
+  ],
+  "proportion_slot_fillable_variables": [
+    0.375,
+    0.625,
+    1.0
+  ],
+  "proportion_mappable_variables": [
+    0.0
+  ],
+  "num_var_types": [
+    0
+  ],
+  "slot_filler_option": [
+    null
+  ],
+  "name_generator": [
+    "NUMBER"
+  ],
+  "error_message": [
+    null
+  ]
+}
